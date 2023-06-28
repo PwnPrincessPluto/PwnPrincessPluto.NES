@@ -4,5 +4,62 @@
 			"path": "."
 		}
 	],
+	"files": [
+		{
+			"path": "demo.65s"
+		}
+	],
+	"options": {
+		"target": "nes",
+		"verbose": true,
+		"output": "demo.nes",
+		"debug": true,
+		"debugger": "gdb",
+		"debuggerArgs": [
+			"-ex", "target remote localhost:1234"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [],
+		"compounds": []
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "My Task",
+				"command": "cl65",
+				"type": "shell",
+				"args": [
+					"--verbose",
+					"--target", "nes",
+					"-o", "demo.nes",
+					"demo.s"
+				],
+				"problemMatcher": [
+					"$tsc"
+				],
+				"presentation": {
+					"reveal": "always"
+				},
+				"group": "build"
+			},
+			{
+				"type": "ca65",
+				"problemMatcher": [
+					"$ca65",
+					"$ld65",
+					"$ld65-unresolved",
+					"$ld65-config"
+				],
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				"label": "ca65: Build without config"
+			}
+		]
+	},
 	"settings": {}
 }

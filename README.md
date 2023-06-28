@@ -1,1 +1,5 @@
 # DevEnvironmentDemo
+
+This code is an Assembly program for the Nintendo Entertainment System (NES) console. The program displays the text "HELLO" on the screen by loading the sprite data for each letter into the sprite memory (SPR-RAM) and enabling rendering. The code consists of several segments such as HEADER, VECTORS, STARTUP, CODE, CHARS. The HEADER segment contains information about the program such as the iNES header identifier, number of PRG and CHR banks, and mapper information. The VECTORS segment defines the NMI, reset, and IRQ handlers.
+
+The CODE segment has the main code of the program, starting with the reset handler where it sets up the stack, disables IRQs and sets the PPU registers. The clear_memory routine clears the memory, the load_palettes routine loads the color palette data, the enable_rendering routine enables the NMI and sprite rendering, and the nmi handler loads the sprite data into SPR-RAM. The CHARS segment has the sprite data for each letter of the word "HELLO".
